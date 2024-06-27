@@ -2,30 +2,79 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
+input[type="file"],
+input[type="text"],
 button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-input[type="file"] {
-  margin-top: 20px;
-}
-
-input[type="text"] {
-  margin-top: 20px;
+  margin: 10px;
   padding: 10px;
   font-size: 16px;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Ensure table container can handle overflow */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  table-layout: auto; /* Automatically adjust the table layout */
+  font-size: 12px; /* Adjust font size to fit more content */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 4px; /* Adjust padding to fit more content */
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+thead tr:last-child td {
+  padding: 0;
+}
+
+thead tr:last-child td input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px;
+  border: none;
+  margin: 0;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+  }
+
+  td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
 }
